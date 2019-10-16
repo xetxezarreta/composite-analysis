@@ -1,0 +1,5 @@
+1. Usar tsfresh para obtener características de las features.
+2. Hacer una selección de features más relevantes (scikit learn - feature selection).
+    2.1 Obtener un % de los datos.
+3. Usar TPOT(AutoML) para generar el mejor modelo.
+4. Generar explicaciones locales y globales con SHAP

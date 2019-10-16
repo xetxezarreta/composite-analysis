@@ -1,4 +1,5 @@
 ### JupyterNotebooks ###
+
 # gitignore template for Jupyter Notebooks
 # website: http://jupyter.org/
 
@@ -22,3 +23,5 @@ ipython_config.py
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+
+data/*
