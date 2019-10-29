@@ -19,6 +19,7 @@ def main():
     print(tpot.score(X_test, y_test))
 
     tpot.export('tmp/tpot_composite_pipeline.py')
+    print('TPOT succesfully finished')
 
 if __name__ == "__main__":
     main()

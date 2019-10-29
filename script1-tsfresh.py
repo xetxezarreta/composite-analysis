@@ -35,6 +35,7 @@ def main():
     df['target'] = target
 
     df.to_csv('tmp/extracted_data.csv')
+    print('Tsfresh succesfully finished')
 
 if __name__ == "__main__":
     main()
