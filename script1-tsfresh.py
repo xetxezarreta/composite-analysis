@@ -1,4 +1,4 @@
-# python -W ignore .\script1-extract-features.py
+# python -W ignore .\script1-tsfresh.py
 import pandas as pd
 from glob import glob
 from tsfresh import extract_features
@@ -32,7 +32,7 @@ def main():
     df = pd.concat(df_list)
     df['target'] = target
 
-    df.to_csv('tmp/extracted_data_test.csv')
+    df.to_csv('tmp/extracted_data.csv')
 
 if __name__ == "__main__":
     main()
