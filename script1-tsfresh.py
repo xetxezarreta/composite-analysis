@@ -1,6 +1,7 @@
 # python -W ignore .\script1-tsfresh.py
 import pandas as pd
 from glob import glob
+import multiprocessing
 from tsfresh import extract_features
 
 def main():
@@ -10,9 +11,10 @@ def main():
     df_list = list()
     target = list()
 
-    count = 0
+    jobs = multiprocessing.cpu_count()
+    print("CPU count: "+ str(jobs))
+
     for i, file in enumerate(files):
-        count += 1
         print("Extracting features from: " + file)
         df = pd.read_csv(file)
         df['id'] = i
@@ -22,7 +24,7 @@ def main():
         consta = [col for col in df if col.endswith(('K1', 'K2', 'K3'))]
         series = [col for col in df if col.endswith(('Time', 'id', 'Flow rate', 'Pressure'))]
 
-        extracted_features = extract_features(df[series], disable_progressbar=True, column_id='id', column_sort='Time', n_jobs=8)
+        extracted_features = extract_features(df[series], disable_progressbar=True, column_id='id', column_sort='Time', n_jobs=jobs)
 
         for j in consta:
             extracted_features[j] = df[j].unique()[0] 
