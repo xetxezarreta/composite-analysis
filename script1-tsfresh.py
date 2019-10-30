@@ -1,4 +1,6 @@
+# Run 'nohup python bgservice.py &' to get the script to ignore the hangup signal and keep running. Output will be put in nohup.out.
 # python -W ignore .\script1-tsfresh.py
+# nohup python -W ignore .\script1-tsfresh.py &
 import pandas as pd
 from glob import glob
 import multiprocessing
