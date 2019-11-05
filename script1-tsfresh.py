@@ -16,7 +16,10 @@ def main():
 
     output_file = 'tmp/extracted_data_test.csv'
 
-    for i, file in enumerate(files[:5]):
+    for i, file in enumerate(files):
+        if not file.endswith('.csv'):
+            continue
+
         print("Extracting file: " + str(i) + " (" + file + ")")
         df = pd.read_csv(file)
         df['id'] = i
