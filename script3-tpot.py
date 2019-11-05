@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 import multiprocessing
 
 def main():
-    df = pd.read_csv('tmp/extracted_data_processed.csv')
+    df = pd.read_csv('tmp/extracted_data.csv')
     X = df.iloc[:,:-1]
     y = df.iloc[:,-1]
 
