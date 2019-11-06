@@ -28,3 +28,9 @@ def fs_RFECV(X, y):
     sel = RFECV(estimator, step=1, cv=5)
     X_new = sel.fit_transform(X, y)
     return X_new, y
+
+def main():
+    pass
+
+if __name__ == "__main__":
+    main()
