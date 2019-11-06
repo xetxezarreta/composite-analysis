@@ -1,3 +1,4 @@
+import pandas as import pd
 # Feature Selection
 from sklearn.feature_selection import VarianceThreshold
 from sklearn.feature_selection import SelectPercentile, mutual_info_classif
@@ -30,6 +31,8 @@ def fs_RFECV(X, y):
     return X_new, y
 
 def main():
+    file = 'tmp/extracted_features.csv'
+    df = pd.read_csv(file)
     pass 
 
 if __name__ == "__main__":
