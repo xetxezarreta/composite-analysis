@@ -25,3 +25,5 @@ ipython_config.py
 .history
 
 data/*
+tmp/tsfresh/*
+tmp/selected_data/*
