@@ -14,4 +14,7 @@ Composite dataset analysis and explainability.
 4. Model explainability with SHAP and Interpret.
 
 ## Composite 3
-  work in progress...
+1. Extract features to all csv files using ts-featurizer.
+2. Select most relevant features (feature selection).
+3. Select best model with TPOT (AutoML).
+4. Model explainability with SHAP and Interpret.
