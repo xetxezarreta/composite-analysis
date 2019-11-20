@@ -1,7 +1,5 @@
-# python -W ignore .\script1-tsfresh.py
-import numpy as np
+# python -W ignore script-tsfeaturizer.py
 import pandas as pd
-import os
 from glob import glob
 import multiprocessing
 from ts_featurizer.base import TimeSeriesFeaturizer
