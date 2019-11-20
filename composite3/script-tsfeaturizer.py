@@ -15,30 +15,24 @@ def main():
 
     output_file = 'tmp/extracted_data_tsfeaturizer.csv'
 
-    for i, file in enumerate(files):
-        if not file.endswith('.csv'):
-            continue
+    df_list = list()
+    target = list()
 
-        print("Extracting file: " + str(i) + " (" + file + ")")
+    for i, file in enumerate(files):
+        print("Reading file: " + str(i) + " (" + file + ")")
         df = pd.read_csv(file)
-        df['id'] = i
-        target = df.TOTAL_QUALITY.unique()[0]
+        target.append(df.TOTAL_QUALITY.unique()[0])
         df = df.drop(axis=1, columns=totals)
 
         series = [col for col in df if col.endswith(('Time', 'id', 'Flow rate', 'Pressure'))]    
-        
-        tseries = TimeSeriesFeaturizer()
-        extracted_features = tseries.featurize(df[series], n_jobs=jobs)
-        
-        extracted_features['target'] = target    
-            
-        if not os.path.isfile(output_file):
-            extracted_features.to_csv(output_file)
-        else:
-            extracted_features.to_csv(output_file, mode='a', header=False)
+        df_list.append(df[series])
+    
+    tseries = TimeSeriesFeaturizer()
+    extracted_features = tseries.featurize(df_list, n_jobs=jobs)
+    extracted_features['target'] = target  
 
-    print('Tsfresh succesfully finished')
-
+    extracted_features.to_csv(output_file)
+    print("tsfeaturizer finished")
 
 if __name__ == "__main__":
     main()

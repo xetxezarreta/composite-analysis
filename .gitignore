@@ -26,3 +26,4 @@ ipython_config.py
 
 data/*
 composite1/tmp/extracted_data/*
+composite3/extracted_data.csv
